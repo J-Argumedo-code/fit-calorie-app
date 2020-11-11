@@ -4,160 +4,120 @@ const btn3 = document.getElementById("pizza");
 const btn4 = document.getElementById("icecream");
 const modo = document.getElementById("luna");
 const txt = document.getElementById("calorias");
+
+
 const header = document.querySelector("header");
+const main = document.querySelector("main");
 const section = document.querySelector("section");
 const body = document.querySelector("body");
 
-let valor;
+//Seleccionar Hijos de un elemento
+//console.log(section.children[0].children[0].style.border = "1px solid red")
 
-//Imagenes:
-const img1 = document.getElementById("burger2");
-const img2 = document.getElementById("soda2");
-const img3 = document.getElementById("pizza2");
-const img4 = document.getElementById("icecream2");
+let valor;
+const calburger = 300;
+const calsoda = 170;
+const calpizza = 350;
+const calicecream = 150;
 
 modo.addEventListener("click", function () {
     modo1();
 });
 
 btn1.addEventListener("click", function () {
-    calorie1();
+    calorie1(calburger);
 });
 
 btn2.addEventListener("click", function () {
-    calorie2();
+    calorie2(calsoda);
 });
 
 btn3.addEventListener("click", function () {
-    calorie3();
+    calorie3(calpizza);
 });
 
 btn4.addEventListener("click", function () {
-    calorie4();
+    calorie4(calicecream);
 });
 
-function calorie1(){
-    valor = parseInt(txt.innerHTML)
-    img1.classList.toggle("gris");
 
-    if (body.style.backgroundColor==="rgb(36, 47, 64)") {
-        btn1.classList.toggle("colordark");
+function calorias(boton, comida){
+    valor = parseInt(txt.innerHTML)
+
+    if (!section.classList.contains("blanco")) {
+        boton.classList.toggle("colordark");
     } else {
-        btn1.classList.toggle("color");
+        boton.classList.toggle("color");
     }
     //const valor2 = 300;
-    if (btn1.classList.contains("color") || btn1.classList.contains("colordark")){
-        txt.innerHTML = valor + 300; 
+    if (boton.classList.contains("color") || boton.classList.contains("colordark")){
+        boton.classList.add("selected")
+        boton.children[0].classList.add("quitgris")
+        txt.innerHTML = valor + comida; 
     }else{
-        txt.innerHTML = valor - 300;
+        boton.classList.remove("selected")
+        boton.children[0].classList.remove("quitgris")
+        txt.innerHTML = valor - comida;
     }
 }
-function calorie2(){
-    valor = parseInt(txt.innerHTML)
-    img2.classList.toggle("gris");
-    
-    if (body.style.backgroundColor==="rgb(36, 47, 64)") {
-        btn2.classList.toggle("colordark");
-    } else {
-        btn2.classList.toggle("color");
-    }
 
-    if (btn2.classList.contains("color") || btn2.classList.contains("colordark")){
-        txt.innerHTML = valor + 170 
-    }else{
-        txt.innerHTML = valor-170
-    }
+
+function calorie1(calburger){
+    calorias(btn1, calburger)
 }
-function calorie3(){
-    valor = parseInt(txt.innerHTML)
-    img3.classList.toggle("gris");
-
-    if (body.style.backgroundColor==="rgb(36, 47, 64)") {
-        btn3.classList.toggle("colordark");
-    } else {
-        btn3.classList.toggle("color");
-    }
-    
-    if (btn3.classList.contains("color") || btn3.classList.contains("colordark")){
-        txt.innerHTML = valor + 350 
-    }else{
-        txt.innerHTML = valor-350
-    }
+function calorie2(calsoda){
+    calorias(btn2, calsoda)
 }
-function calorie4(){
-    valor = parseInt(txt.innerHTML)
-    img4.classList.toggle("gris");
-    
-    if (body.style.backgroundColor==="rgb(36, 47, 64)") {
-        btn4.classList.toggle("colordark");
-    } else {
-        btn4.classList.toggle("color");
-    }
+function calorie3(calpizza){
+    calorias(btn3, calpizza)
+}
+function calorie4(calicecream){
+    calorias(btn4, calicecream)
+}
 
-    if (btn4.classList.contains("color") || btn4.classList.contains("colordark")){
-        txt.innerHTML = valor + 150 
-    }else{
-        txt.innerHTML = valor-150
+
+
+function cambiarColor(img, color1, color2, color3, color4, borde, mod1, mod2){
+    modo.src=img
+
+    header.style.backgroundColor = color1
+    main.style.backgroundColor = color1
+    body.classList.remove(color2)
+    body.classList.add(color3)
+    section.classList.remove(color2)
+    section.classList.add(color3)
+    section.style.color = color4
+    btn1.style.border = borde
+    btn2.style.border = borde
+    btn3.style.border = borde
+    btn4.style.border = borde
+
+    if (btn1.classList.contains(mod1)){
+        btn1.classList.remove(mod1)
+        btn1.classList.add(mod2)
+    }
+    if (btn2.classList.contains(mod1)){
+        btn2.classList.remove(mod1)
+        btn2.classList.add(mod2)
+    }
+    if (btn3.classList.contains(mod1)){
+        btn3.classList.remove(mod1)
+        btn3.classList.add(mod2)
+    }
+    if (btn4.classList.contains(mod1)){
+        btn4.classList.remove(mod1)
+        btn4.classList.add(mod2)
     }
 }
 
 function modo1(){
-    if (body.style.backgroundColor==="rgb(36, 47, 64)") {
-    modo.src="resources/luna.png"
-
-    header.style.backgroundColor = "rgb(255, 153, 0)"
-    body.style.backgroundColor = "white"
-    section.style.color = "black"
-    btn1.style.border = "2px inset gray"
-    btn2.style.border = "2px inset gray"
-    btn3.style.border = "2px inset gray"
-    btn4.style.border = "2px inset gray"
-
-
-    if (btn1.classList.contains("colordark")){
-        btn1.classList.remove("colordark")
-        btn1.classList.add("color")
-    }
-    if (btn2.classList.contains("colordark")){
-        btn2.classList.remove("colordark")
-        btn2.classList.add("color")
-    }
-    if (btn3.classList.contains("colordark")){
-        btn3.classList.remove("colordark")
-        btn3.classList.add("color")
-    }
-    if (btn4.classList.contains("colordark")){
-        btn4.classList.remove("colordark")
-        btn4.classList.add("color")
-    }
-    } else {
-    modo.src="resources/sol.png"
-
-    header.style.backgroundColor = "#C34C00"
-    body.style.backgroundColor = "#242f40"
-    section.style.color = "white"
-    btn1.style.border = "2px inset white"
-    btn2.style.border = "2px inset white"
-    btn3.style.border = "2px inset white"
-    btn4.style.border = "2px inset white"
-
-
-    if (btn1.classList.contains("color")){
-        btn1.classList.remove("color")
-        btn1.classList.add("colordark")
-    }
-    if (btn2.classList.contains("color")){
-        btn2.classList.remove("color")
-        btn2.classList.add("colordark")
-    }
-    if (btn3.classList.contains("color")){
-        btn3.classList.remove("color")
-        btn3.classList.add("colordark")
-    }
-    if (btn4.classList.contains("color")){
-        btn4.classList.remove("color")
-        btn4.classList.add("colordark")
-    }
-    }
+    if (!section.classList.contains("blanco")) {
     
+        cambiarColor("resources/luna.png", "rgb(255, 153, 0)", "negro", "blanco", "black", "2px inset gray", "colordark", "color")
+
+    } else {
+
+        cambiarColor("resources/sol.png", "#C34C00", "blanco", "negro", "white", "2px inset white", "color", "colordark")
+
+    }
 }

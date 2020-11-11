@@ -7,17 +7,22 @@
 body{
     height: 100vh;
     box-sizing: border-box;
+    background-color: rgb(255, 255, 255);
 
-    transition: all 1s;
+    transition: all 1.5s;
+}
+
+main{
+    background-color: rgb(255, 153, 0);
+    height: 85%;
+    transition: all 1.5s;
 }
 
 header{
-    padding: 10px;
-    padding-left: 30px;
-    padding-right: 30px;
+    padding: 10px 30px 5px 30px;
     height: 10%;
     background-color: rgb(255, 153, 0);
-
+    position: relative;
     transition: all 1.5s;
 
     display: flex;
@@ -40,7 +45,10 @@ header button{
 }
 
 section{
-    height: 85%;
+    height: 100%;
+    border-top-left-radius: 50px;
+    border-top-right-radius: 50px;
+    transition: all 1.5s;
 
     display: flex;
     flex-direction: row;
@@ -49,6 +57,7 @@ section{
 .products{
     width: 60%;
     height: 100%;
+    
     display: flex;
     flex-wrap: wrap;
     align-content: center;
@@ -62,7 +71,8 @@ article{
     width: 170px;
     height: 170px;
     border: 2px inset gray;
-    border-radius: 15px;
+    border-radius: 100%;
+    transition: border-radius 1s, box-shadow 1s;
 
     display: flex;
     align-items: center;
@@ -70,48 +80,66 @@ article{
 }
 
 article img{
-    width: 160px;
-    height: 160px;
-}
-article:hover img{
-    filter: grayscale(0);
-}
+    width: 150px;
+    height: 150px;
+    filter: grayscale(1);
 
+    transition: all 1s;
+}
 .soda{
     width: 100px;
     height: 170px;
 }
 
+article:hover{
+    border-radius: 20px;
+    box-shadow: 0px 0px 30px 0px rgba(0,0,0,0.75);
+}
+article:hover img{
+    filter: grayscale(0);
+}
+
+
+.selected{
+    border-radius: 20px;
+    box-shadow: 0px 0px 30px 0px rgba(0,0,0,0.75);
+}
+
+.quitgris{
+    filter: grayscale(0);
+}
+
+
 
 /*Animaciones*/
 #burger{
-    -webkit-animation: cargar 3s 1 linear 0s;
+    animation: cargar 3s 1 linear 0s;
 }
 #soda{
-    -webkit-animation: cargar1 3s 1 linear 0s;
+    animation: cargar1 3s 1 linear 0s;
 }
 #pizza{
-    -webkit-animation: cargar2 3s 1 linear 0s;
+    animation: cargar2 3s 1 linear 0s;
 }
 #icecream{
-    -webkit-animation: cargar3 3s 1 linear 0s;
+    animation: cargar3 3s 1 linear 0s;
 }
-@-webkit-keyframes cargar{
+@keyframes cargar{
     0%{filter: opacity(0%);}
     0%{filter: opacity(0%);}
 	100%{}
 }
-@-webkit-keyframes cargar1{
+@keyframes cargar1{
     0%{filter: opacity(0%);}
     25%{filter: opacity(0%);}
 	100%{}
 }
-@-webkit-keyframes cargar2{
+@keyframes cargar2{
     0%{filter: opacity(0%);}
     50%{filter: opacity(0%);}
 	100%{}
 }
-@-webkit-keyframes cargar3{
+@keyframes cargar3{
     0%{filter: opacity(0%);}
     75%{filter: opacity(0%);}
 	100%{}
@@ -139,8 +167,13 @@ article:hover img{
     /*335c67*/
     background-color: #6b6b6bbe;
 }
-.gris{
-    filter: grayscale(1);
+
+
+.blanco{
+    background-color: white;
+}
+.negro{
+    background-color: #242f40;
 }
 
 
@@ -155,18 +188,13 @@ article:hover img{
         height: 50px;
     }
 
-    body{
-        height: 100%;
-    }
-
     section{
         flex-direction: column-reverse;
     }
 
     .products{
         width: 100%;
-        height: 50%;
-        align-content: center;
+        height: 70%;
     }
 
     .calorias h1{
@@ -175,7 +203,7 @@ article:hover img{
 
     .calorias{
         width: 100%;
-        height: 40%;
+        height: 30%;
     }
 
     article{
@@ -194,10 +222,7 @@ article:hover img{
     }
 }
 
-@media screen and (min-width: 551px) and (max-width: 780px){
-    body{
-        height: 100%;
-    }
+@media screen and (min-width: 551px) and (max-width: 796.9px){
 
     header h1{
         font-size: 25px;
@@ -227,14 +252,13 @@ article:hover img{
     }
 
     .products{
-        align-content: unset;
         width: 100%;
-        height: 50%;
+        height: 70%;
     }
 
     .calorias{
         width: 100%;
-        height: 40%;
+        height: 30%;
     }
 
     .calorias h1{
@@ -242,9 +266,9 @@ article:hover img{
     }
 }
 
-@media screen and (min-width: 781px) and (max-width: 900px){
+@media screen and (min-width: 797px) and (max-width: 900px){
     article{
-        width: 135px;
-        height: 135px;
+        width: 145px;
+        height: 145px;
     }
 }

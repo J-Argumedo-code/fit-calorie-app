@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,44 +8,41 @@
     <link rel="stylesheet" href="css/estilo.css">
     <link href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@300&display=swap" rel="stylesheet">
 </head>
+
 <body>
     <header>
         <h1>Fit Calorie - APP</h1>
         <button>
-            <img src="resources/luna.png" alt="luna" id="luna">
+            <img src="resources/luna.png" alt="luna" id="luna" class="mode">
         </button>
-        
+
     </header>
 
     <main>
-        <section class="blanco">
-            <div class="products">
-                <article id="burger">
-                    <img src="resources/burger.png" alt="burger" id="burger2">
-                </article>
-    
-                <article id="soda">
-                    <img src="resources/soda.png" alt="soda" class="soda" id="soda2">
-                </article>
-    
-                <article id="pizza">
-                    <img src="resources/pizza.png" alt="pizza" id="pizza2"> 
-                </article>
-    
-                <article id="icecream">
-                    <img src="resources/icecream.png" alt="icecream" id="icecream2">
-                </article>
-            </div>
-    
-            <div class="calorias">
-                <h1>Calorias totales:</h1>
-                <h1 style="font-style: italic" id="calorias">0</h1>
-                <h2>Calorias</h2>
-            </div>
-        </section>
+        <div class="products">
+            <article class="burger">
+                <img src="resources/burger.jpg" alt="burger" id="burger">
+            </article>
+            <article class="soda">
+                <img src="resources/soda.jpg" alt="soda" id="soda">
+            </article>
+            <article class="pizza">
+                <img src="resources/pizza.jpg" alt="pizza" id="pizza">
+            </article>
+            <article class="icecream">
+                <img src="resources/icecream.jpg" alt="icecream" id="icecream">
+            </article>
+        </div>
+
+        <div class="calorias">
+            <h1>Calorias totales:</h1>
+            <h1 style="font-style: italic" id="calorias">0</h1>
+            <h2>Calorias</h2>
+        </div>
     </main>
 
-<script src="js/js.js"></script>
+    <script src="js/js.js"></script>
 
 </body>
+
 </html>

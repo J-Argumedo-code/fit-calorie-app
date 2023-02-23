@@ -1,41 +1,23 @@
 *{
     padding: 0;
     margin: 0;
+    box-sizing: border-box;
     font-family: 'Ubuntu', sans-serif;
 }
 
 body{
     height: 100vh;
-    box-sizing: border-box;
-    background-color: rgb(255, 255, 255);
-
-    transition: all 1.5s;
-}
-
-main{
     background-color: rgb(255, 153, 0);
-    height: 85%;
     transition: all 1.5s;
 }
 
 header{
-    padding: 10px 30px 5px 30px;
-    height: 10%;
-    background-color: rgb(255, 153, 0);
-    position: relative;
-    transition: all 1.5s;
+    padding: 15px 30px;
+    height: 12%;
 
     display: flex;
-    flex-wrap: nowrap;
-    flex-direction: row;
     justify-content: space-between;
     align-items: center;
-}
-
-header img{
-    padding-top: 5px;
-    width: 70px;
-    height: 70px;
 }
 
 header button{
@@ -43,59 +25,45 @@ header button{
     border: none;
     outline: none;
 }
-
-section{
+header button, .mode{
     height: 100%;
-    border-top-left-radius: 50px;
-    border-top-right-radius: 50px;
-    transition: all 1.5s;
+}
+
+main{
+    background-color: white;
+    height: 88%;
+    border-radius: 50px 50px 0px 0px;
 
     display: flex;
-    flex-direction: row;
 }
 
 .products{
     width: 60%;
-    height: 100%;
     
     display: flex;
     flex-wrap: wrap;
     align-content: center;
-    flex-direction: row;
     justify-content: center;
 }
 
-article{
-    padding: 20px;
-    margin: 25px;
-    width: 170px;
-    height: 170px;
-    border: 2px inset gray;
+.products article{
+    margin: 20px;
+    width: 25%;
     border-radius: 100%;
-    transition: border-radius 1s, box-shadow 1s;
-
-    display: flex;
-    align-items: center;
-    justify-content: space-around;
 }
 
+
 article img{
-    width: 150px;
-    height: 150px;
+    width: 100%;
     filter: grayscale(1);
+    border-radius: 100%;
 
     transition: all 1s;
 }
-.soda{
-    width: 100px;
-    height: 170px;
-}
 
-article:hover{
+.products img:hover{
     border-radius: 20px;
     box-shadow: 0px 0px 30px 0px rgba(0,0,0,0.75);
-}
-article:hover img{
     filter: grayscale(0);
 }
 
@@ -103,45 +71,26 @@ article:hover img{
 .selected{
     border-radius: 20px;
     box-shadow: 0px 0px 30px 0px rgba(0,0,0,0.75);
-}
-
-.quitgris{
     filter: grayscale(0);
 }
 
 
 
 /*Animaciones*/
-#burger{
-    animation: cargar 3s 1 linear 0s;
+.burger{
+    animation: cargar 3s linear 0s;
 }
-#soda{
-    animation: cargar1 3s 1 linear 0s;
+.soda{
+    animation: cargar 3s cubic-bezier(.62,.01,.58,.58) 0s;
 }
-#pizza{
-    animation: cargar2 3s 1 linear 0s;
+.pizza{
+    animation: cargar 3s cubic-bezier(.85,0,.58,.58) 0s;
 }
-#icecream{
-    animation: cargar3 3s 1 linear 0s;
+.icecream{
+    animation: cargar 3s cubic-bezier(1,0,.58,.58) 0s;
 }
 @keyframes cargar{
     0%{filter: opacity(0%);}
-    0%{filter: opacity(0%);}
-	100%{}
-}
-@keyframes cargar1{
-    0%{filter: opacity(0%);}
-    25%{filter: opacity(0%);}
-	100%{}
-}
-@keyframes cargar2{
-    0%{filter: opacity(0%);}
-    50%{filter: opacity(0%);}
-	100%{}
-}
-@keyframes cargar3{
-    0%{filter: opacity(0%);}
-    75%{filter: opacity(0%);}
 	100%{}
 }
 
@@ -263,12 +212,5 @@ article:hover img{
 
     .calorias h1{
         font-size: 26px;
-    }
-}
-
-@media screen and (min-width: 797px) and (max-width: 900px){
-    article{
-        width: 145px;
-        height: 145px;
     }
 }

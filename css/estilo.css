@@ -8,7 +8,7 @@
 body{
     height: 100vh;
     background-color: rgb(255, 153, 0);
-    transition: all 1.5s;
+    transition: background 1.5s;
 }
 
 header{
@@ -33,6 +33,7 @@ main{
     background-color: white;
     height: 88%;
     border-radius: 50px 50px 0px 0px;
+    transition: background 1.5s;
 
     display: flex;
 }
@@ -43,15 +44,13 @@ main{
     display: flex;
     flex-wrap: wrap;
     align-content: center;
-    justify-content: center;
+    justify-content: space-evenly;
 }
 
 .products article{
-    margin: 20px;
-    width: 25%;
-    border-radius: 100%;
+    margin-bottom: 20px;
+    width: 26%;
 }
-
 
 article img{
     width: 100%;
@@ -61,33 +60,26 @@ article img{
     transition: all 1s;
 }
 
-.products img:hover{
+.products img:hover, .selected{
     border-radius: 20px;
-    box-shadow: 0px 0px 30px 0px rgba(0,0,0,0.75);
+    box-shadow:  15px 15px 30px #a8a8a8,
+             -15px -15px 30px #ffffff;
     filter: grayscale(0);
 }
-
-
-.selected{
-    border-radius: 20px;
-    box-shadow: 0px 0px 30px 0px rgba(0,0,0,0.75);
-    filter: grayscale(0);
-}
-
 
 
 /*Animaciones*/
 .burger{
-    animation: cargar 3s linear 0s;
+    animation: cargar 3s linear;
 }
 .soda{
-    animation: cargar 3s cubic-bezier(.62,.01,.58,.58) 0s;
+    animation: cargar 3.3s cubic-bezier(.62,.01,.58,.58);
 }
 .pizza{
-    animation: cargar 3s cubic-bezier(.85,0,.58,.58) 0s;
+    animation: cargar 3.6s cubic-bezier(.85,0,.58,.58);
 }
 .icecream{
-    animation: cargar 3s cubic-bezier(1,0,.58,.58) 0s;
+    animation: cargar 3.9s cubic-bezier(1,0,.58,.58);
 }
 @keyframes cargar{
     0%{filter: opacity(0%);}
@@ -107,110 +99,53 @@ article img{
     font-size: 30px;
 }
 
-/*Colores*/
-.color{
-    /*08b2e3*/
-    background-color: #fd9c41bb;
+/*Cambio de modo*/
+.body-dark-color{
+    background-color: #C34C00;
 }
-.colordark{
-    /*335c67*/
-    background-color: #6b6b6bbe;
-}
-
-
-.blanco{
-    background-color: white;
-}
-.negro{
+.main-dark-color{
     background-color: #242f40;
+}
+.product-shadow-dark-color:hover, .product-shadow-dark-color.selected{
+    box-shadow:  15px 15px 30px #181f2a,
+             -15px -15px 30px #303f56 !important;
 }
 
 
 /*Responsive*/
-@media screen and (min-width: 0px) and (max-width: 551px){
+@media screen and (min-width: 0px) and (max-width: 768.9px){
     header h1{
-        font-size: 25px;
-    }
-    
-    header img{
-        width: 50px;
-        height: 50px;
+        font-size: 40px;
     }
 
-    section{
+    main{
         flex-direction: column-reverse;
+    }
+
+    .products article{
+        width: 35%;
     }
 
     .products{
         width: 100%;
-        height: 70%;
-    }
-
-    .calorias h1{
-        font-size: 25px;
+        height: 75%;
+        align-content: space-evenly;
     }
 
     .calorias{
         width: 100%;
-        height: 30%;
-    }
-
-    article{
-        width: 90px;
-        height: 90px;
-    }
-
-    article img{
-        width: 100px;
-        height: 100px;
-    }
-
-    .soda{
-        width: 70px;
-        height: 120px;
+        height: 25%;
     }
 }
 
-@media screen and (min-width: 551px) and (max-width: 796.9px){
-
+@media screen and (max-width: 576px){
     header h1{
-        font-size: 25px;
+        font-size: 30px;
     }
-    
-    header img{
-        width: 50px;
-        height: 50px;
-    }
-
-    section{
-        flex-direction: column-reverse;
-    }
-
-    article{
-        margin: 22px;
-    }
-
-    article img{
-        width: 120px;
-        height: 120px;
-    }
-
-    .soda{
-        width: 80px;
-        height: 140px;
-    }
-
     .products{
-        width: 100%;
         height: 70%;
     }
-
     .calorias{
-        width: 100%;
         height: 30%;
-    }
-
-    .calorias h1{
-        font-size: 26px;
     }
 }
